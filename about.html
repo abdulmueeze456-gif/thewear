@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>About Us | THE WEAR</title>
+
+<meta
+name="description"
+content="Discover THE WEAR — a modern Pakistani fashion and headwear brand focused on clean design, quality and everyday confidence."
+>
+
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* ================================
+   THE WEAR — ABOUT PAGE
+   Premium Section Styling
+================================ */
+
+.about-hero {
+    padding: 85px 0 70px;
+    text-align: center;
+}
+
+.about-hero .eyebrow {
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.about-hero h1 {
+    margin: 0 auto 22px;
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    font-weight: 600;
+}
+
+.about-hero p {
+    max-width: 720px;
+    margin: 0 auto;
+    color: #666;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+
+/* Brand Story */
+
+.about-story {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+    padding: 70px 0;
+    border-top: 1px solid #eee;
+}
+
+.about-story h2 {
+    font-size: 34px;
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+}
+
+.about-story p {
+    color: #666;
+    line-height: 1.9;
+    margin-bottom: 16px;
+}
+
+.about-story-image {
+    min-height: 360px;
+    background: #f5f5f5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.about-story-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* Values */
+
+.about-values {
+    padding: 70px 0;
+    border-top: 1px solid #eee;
+}
+
+.about-values-heading {
+    text-align: center;
+    margin-bottom: 45px;
+}
+
+.about-values-heading .eyebrow {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #777;
+}
+
+.about-values-heading h2 {
+    font-size: 34px;
+    margin: 12px 0 0;
+}
+
+.values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.value-card {
+    padding: 30px;
+    border: 1px solid #e8e8e8;
+    background: #fff;
+    transition: transform .25s ease, box-shadow .25s ease;
+}
+
+.value-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 35px rgba(0,0,0,.07);
+}
+
+.value-number {
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 28px;
+}
+
+.value-card h3 {
+    margin: 0 0 12px;
+    font-size: 19px;
+}
+
+.value-card p {
+    margin: 0;
+    color: #777;
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+
+/* Contact */
+
+.about-contact {
+    margin: 70px 0 90px;
+    padding: 55px;
+    background: #111;
+    color: #fff;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 40px;
+    align-items: center;
+}
+
+.about-contact .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #aaa;
+    margin-bottom: 12px;
+}
+
+.about-contact h2 {
+    margin: 0 0 12px;
+    font-size: 32px;
+}
+
+.about-contact p {
+    margin: 0;
+    color: #bbb;
+    line-height: 1.8;
+    max-width: 600px;
+}
+
+.contact-details {
+    margin-top: 22px;
+}
+
+.contact-details a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 22px;
+    font-size: 14px;
+}
+
+.contact-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    min-width: 170px;
+}
+
+.contact-actions a {
+    text-align: center;
+    padding: 13px 20px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s ease;
+}
+
+.whatsapp-btn {
+    background: #25D366;
+    color: #fff;
+}
+
+.whatsapp-btn:hover {
+    background: #1fbd5a;
+}
+
+.email-btn {
+    background: #fff;
+    color: #111;
+}
+
+.email-btn:hover {
+    background: #eee;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .about-hero {
+        padding: 60px 0 50px;
+    }
+
+    .about-story {
+        grid-template-columns: 1fr;
+        gap: 35px;
+        padding: 55px 0;
+    }
+
+    .about-story-image {
+        min-height: 260px;
+        order: -1;
+    }
+
+    .values-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-contact {
+        grid-template-columns: 1fr;
+        padding: 35px 25px;
+        margin: 55px 0 65px;
+    }
+
+    .contact-actions {
+        width: 100%;
+    }
+
+    .contact-details a {
+        display: block;
+        margin: 8px 0;
+    }
+}
+
+</style>
+
+</head>
+
+
+<body data-page="info">
+
+
+<!-- Announcement -->
+
+<div class="announce">
+    <b>FREE SHIPPING</b>
+    ON ORDERS OVER PKR 4,000
+    · CASH ON DELIVERY AVAILABLE
+</div>
+
+
+<!-- Header -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a class="brand" href="index.html">
+    <img src="assets/logo.svg" alt="THE WEAR">
+</a>
+
+<nav class="navlinks">
+
+<a href="shop.html">Shop</a>
+
+<a href="shop.html?cat=Caps">
+    Caps
+</a>
+
+<a href="shop.html?cat=">
+   Leather
+</a>
+
+<a href="shop.html?cat=Streetwear">
+    Streetwear
+</a>
+
+<a href="about.html">
+    About
+</a>
+
+</nav>
+
+
+<div class="navicons">
+
+<a class="iconbtn" href="shop.html">
+    ⌕
+</a>
+
+<a class="iconbtn badgecount" href="cart.html">
+    🛒
+    <span class="cart-count">0</span>
+</a>
+
+<button class="iconbtn menu">
+    ☰
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- Hero -->
+
+<section class="about-hero">
+
+<div class="eyebrow">
+    THE WEAR
+</div>
+
+<h1>
+    Designed to be worn.<br>
+    Made to stand out.
+</h1>
+
+<p>
+    THE WEAR is a modern Pakistani fashion and headwear brand
+    built around clean silhouettes, confident details and pieces
+    made for everyday life.
+</p>
+
+</section>
+
+
+<!-- Story -->
+
+<section class="about-story">
+
+<div>
+
+<h2>
+    Our Story
+</h2>
+
+<p>
+    THE WEAR was created with a simple idea — fashion should feel
+    effortless, confident and personal.
+</p>
+
+<p>
+    From everyday caps to carefully selected fashion accessories,
+    we focus on timeless designs that can become part of your
+    everyday style.
+</p>
+
+<p>
+    We believe the right piece does more than complete an outfit.
+    It becomes part of how you carry yourself.
+</p>
+
+</div>
+
+
+<div class="about-story-image">
+
+<img
+src="assets/logo.svg"
+alt="THE WEAR"
+style="max-width:180px;height:auto;"
+>
+
+</div>
+
+</section>
+
+
+<!-- Values -->
+
+<section class="about-values">
+
+<div class="about-values-heading">
+
+<div class="eyebrow">
+    WHAT WE STAND FOR
+</div>
+
+<h2>
+    The THE WEAR Standard
+</h2>
+
+</div>
+
+
+<div class="values-grid">
+
+
+<div class="value-card">
+
+<div class="value-number">
+    01
+</div>
+
+<h3>
+    Clean Design
+</h3>
+
+<p>
+    Minimal, versatile designs that work naturally with
+    your everyday wardrobe.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-number">
+    02
+</div>
+
+<h3>
+    Quality First
+</h3>
+
+<p>
+    We focus on materials, finishing and details that make
+    every piece worth wearing.
+</p>
+
+</div>
+
+
+<div class="value-card">
+
+<div class="value-number">
+    03
+</div>
+
+<h3>
+    Customer First
+</h3>
+
+<p>
+    From your first visit to your order arriving at your door,
+    we aim to make your experience simple and reliable.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+<!-- Contact -->
+
+<section class="about-contact">
+
+<div>
+
+<div class="eyebrow">
+    NEED HELP?
+</div>
+
+<h2>
+    We're here for you.
+</h2>
+
+<p>
+    Have a question about a product, order, delivery or anything
+    else? Get in touch with the THE WEAR team.
+</p>
+
+
+<div class="contact-details">
+
+<a href="mailto:thewear.pk@gmail.com">
+    ✉ thewear.pk@gmail.com
+</a>
+
+<a
+href="https://wa.me/923037958028"
+target="_blank"
+rel="noopener"
+>
+    WhatsApp: 0303 7958028
+</a>
+
+</div>
+
+</div>
+
+
+<div class="contact-actions">
+
+<a
+class="whatsapp-btn"
+href="https://wa.me/923037958028?text=Assalam%20o%20Alaikum%2C%20I%20have%20a%20question%20about%20THE%20WEAR."
+target="_blank"
+rel="noopener"
+>
+    WhatsApp Us
+</a>
+
+
+<a
+class="email-btn"
+href="mailto:thewear.pk@gmail.com"
+>
+    Email Us
+</a>
+
+</div>
+
+</section>
+
+
+</main>
+
+
+<!-- Footer -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+
+<div>
+
+<img
+src="assets/logo.svg"
+alt="THE WEAR"
+>
+
+<p>
+Modern headwear and fashion essentials made for everyday confidence.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+    Shop
+</h4>
+
+<p>
+
+<a href="shop.html">
+    All Products
+</a>
+<br>
+
+<a href="shop.html?cat=Caps">
+    Caps
+</a>
+<br>
+
+<a href="shop.html?cat=Bag">
+   Leather
+</a>
+<br>
+
+<a href="shop.html?cat=Streetwear">
+    Streetwear
+</a>
+
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+    Help
+</h4>
+
+<p>
+
+<a href="shipping

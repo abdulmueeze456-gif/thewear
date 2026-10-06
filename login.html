@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>THE WEAR Admin Login</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+
+<body class="admin-body">
+
+<main class="login-wrap">
+
+  <form class="login-box" id="loginForm">
+
+    <img src="../assets/logo.svg" alt="THE WEAR">
+
+    <h1>Admin Login</h1>
+
+    <p style="color:#777;font-size:12px">
+      Sign in to manage THE WEAR store.
+    </p>
+
+    <label style="font-size:10px;font-weight:800">
+      EMAIL
+    </label>
+
+    <input
+      id="email"
+      type="email"
+      placeholder="admin@thewear.pk"
+      required
+    >
+
+    <label style="font-size:10px;font-weight:800">
+      PASSWORD
+    </label>
+
+    <input
+      id="password"
+      type="password"
+      placeholder="Enter password"
+      required
+    >
+
+    <button type="submit">
+      LOGIN
+    </button>
+
+    <p id="msg" style="font-size:11px;margin-top:12px"></p>
+
+  </form>
+
+</main>
+
+<script type="module">
+
+import { auth } from "../firebase/firebase-config.js";
+
+import {
+  signInWithEmailAndPassword,
+  onAuthStateChanged,
+  signOut
+} from "https://www.gstatic.com/firebasejs/12.19.0/firebase-auth.js";
+
+
+const ADMIN_EMAIL = "wear@gmail.com";
+
+const form = document.getElementById("loginForm");
+const email = document.getElementById("email");
+const password = document.getElementById("password");
+const msg = document.getElementById("msg");
+
+
+onAuthStateChanged(auth, (user) => {
+
+  if (user) {
+
+    if (user.email.toLowerCase() === ADMIN_EMAIL.toLowerCase()) {
+
+      window.location.href = "index.html";
+
+    } else {
+
+      signOut(auth);
+
+      msg.style.color = "#b11";
+      msg.textContent = "This account is not authorized for admin access.";
+
+    }
+
+  }
+
+});
+
+
+form.addEventListener("submit", async (e) => {
+
+  e.preventDefault();
+
+  msg.textContent = "Logging in...";
+  msg.style.color = "#777";
+
+  try {
+
+    const result = await signInWithEmailAndPassword(
+      auth,
+      email.value.trim(),
+      password.value
+    );
+
+    if (
+      result.user.email.toLowerCase() !==
+      ADMIN_EMAIL.toLowerCase()
+    ) {
+
+      await signOut(auth);
+
+      msg.style.color = "#b11";
+      msg.textContent =
+        "This account is not authorized for admin access.";
+
+      return;
+    }
+
+    window.location.href = "index.html";
+
+  } catch (error) {
+
+    console.error(error);
+
+    msg.style.color = "#b11";
+
+    msg.textContent = "Invalid email or password.";
+
+  }
+
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,753 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Contact Us | THE WEAR</title>
+
+<meta
+name="description"
+content="Contact THE WEAR for product questions, orders, delivery and customer support in Pakistan."
+>
+
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =====================================
+   THE WEAR — CONTACT PAGE
+===================================== */
+
+.contact-hero {
+    text-align: center;
+    padding: 80px 0 65px;
+}
+
+.contact-hero .eyebrow {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #777;
+    margin-bottom: 15px;
+}
+
+.contact-hero h1 {
+    margin: 0 0 20px;
+    font-size: clamp(38px, 6vw, 62px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+}
+
+.contact-hero p {
+    max-width: 680px;
+    margin: auto;
+    color: #666;
+    line-height: 1.9;
+}
+
+
+/* Contact Grid */
+
+.contact-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    padding-bottom: 80px;
+}
+
+
+/* Cards */
+
+.contact-card {
+    border: 1px solid #e8e8e8;
+    padding: 38px;
+    background: #fff;
+}
+
+.contact-card .number {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #999;
+    margin-bottom: 22px;
+}
+
+.contact-card h2 {
+    font-size: 25px;
+    margin: 0 0 12px;
+}
+
+.contact-card p {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+
+/* Contact Details */
+
+.contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.contact-info a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 16px;
+
+    border: 1px solid #eee;
+
+    color: #222;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: .2s ease;
+}
+
+.contact-info a:hover {
+    border-color: #222;
+    transform: translateX(3px);
+}
+
+
+/* WhatsApp */
+
+.whatsapp-contact {
+    background: #25D366 !important;
+    color: #fff !important;
+    border-color: #25D366 !important;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.whatsapp-contact:hover {
+    background: #20bd5a !important;
+    border-color: #20bd5a !important;
+}
+
+
+/* Email */
+
+.email-contact {
+    justify-content: center;
+}
+
+
+/* Support Box */
+
+.support-box {
+    margin-top: 25px;
+    padding: 22px;
+    background: #f7f7f7;
+}
+
+.support-box strong {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+}
+
+.support-box span {
+    color: #777;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* Message Card */
+
+.message-card {
+    border: 1px solid #e8e8e8;
+    padding: 38px;
+}
+
+.message-card h2 {
+    margin: 0 0 10px;
+    font-size: 25px;
+}
+
+.message-card p {
+    color: #777;
+    line-height: 1.8;
+    margin-bottom: 28px;
+}
+
+
+/* Form */
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-form label {
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: -7px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    box-sizing: border-box;
+
+    border: 1px solid #ddd;
+
+    padding: 14px 15px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    outline: none;
+
+    transition: border-color .2s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #222;
+}
+
+.contact-form textarea {
+    min-height: 130px;
+    resize: vertical;
+}
+
+.contact-submit {
+    margin-top: 5px;
+
+    border: none;
+
+    background: #111;
+    color: #fff;
+
+    padding: 15px 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: .2s ease;
+}
+
+.contact-submit:hover {
+    background: #333;
+}
+
+
+/* Bottom CTA */
+
+.contact-cta {
+    margin: 0 0 85px;
+
+    padding: 48px;
+
+    background: #111;
+    color: #fff;
+
+    text-align: center;
+}
+
+.contact-cta h2 {
+    margin: 0 0 12px;
+    font-size: 30px;
+}
+
+.contact-cta p {
+    max-width: 620px;
+    margin: 0 auto 25px;
+
+    color: #bbb;
+    line-height: 1.8;
+}
+
+.contact-cta a {
+    display: inline-block;
+
+    padding: 13px 25px;
+
+    background: #25D366;
+    color: #fff;
+
+    text-decoration: none;
+
+    font-size: 13px;
+    font-weight: 600;
+
+    border-radius: 2px;
+}
+
+
+/* Mobile */
+
+@media (max-width: 800px) {
+
+    .contact-hero {
+        padding: 60px 0 50px;
+    }
+
+    .contact-section {
+        grid-template-columns: 1fr;
+        padding-bottom: 55px;
+    }
+
+    .contact-card,
+    .message-card {
+        padding: 28px 22px;
+    }
+
+    .contact-cta {
+        padding: 38px 22px;
+        margin-bottom: 60px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body data-page="info">
+
+
+<!-- Announcement -->
+
+<div class="announce">
+    <b>FREE SHIPPING</b>
+    ON ORDERS OVER PKR 4,000
+    · CASH ON DELIVERY AVAILABLE
+</div>
+
+
+<!-- Header -->
+
+<header class="header">
+
+<div class="container nav">
+
+<a class="brand" href="index.html">
+    <img src="assets/logo.svg" alt="THE WEAR">
+</a>
+
+
+<nav class="navlinks">
+
+<a href="shop.html">Shop</a>
+
+<a href="shop.html?cat=Caps">
+    Caps
+</a>
+
+<a href="shop.html?cat=Bag">
+   Leather
+</a>
+
+<a href="shop.html?cat=Streetwear">
+    Streetwear
+</a>
+
+<a href="about.html">
+    About
+</a>
+
+</nav>
+
+
+<div class="navicons">
+
+<a class="iconbtn" href="shop.html">
+    ⌕
+</a>
+
+<a class="iconbtn badgecount" href="cart.html">
+    🛒
+    <span class="cart-count">0</span>
+</a>
+
+<button class="iconbtn menu">
+    ☰
+</button>
+
+</div>
+
+</div>
+
+</header>
+
+
+<main class="container">
+
+
+<!-- Hero -->
+
+<section class="contact-hero">
+
+<div class="eyebrow">
+    THE WEAR SUPPORT
+</div>
+
+<h1>
+    Contact Us
+</h1>
+
+<p>
+    Have a question about a product, your order or delivery?
+    Our team is here to help. Reach out to us through WhatsApp
+    or email and we'll be happy to assist you.
+</p>
+
+</section>
+
+
+<!-- Contact Section -->
+
+<section class="contact-section">
+
+
+<!-- Direct Contact -->
+
+<div class="contact-card">
+
+<div class="number">
+    01 — GET IN TOUCH
+</div>
+
+<h2>
+    We're here to help.
+</h2>
+
+<p>
+    For the fastest response, contact us directly through
+    WhatsApp. You can also send us an email for general
+    questions and support.
+</p>
+
+
+<div class="contact-info">
+
+
+<a
+class="whatsapp-contact"
+href="https://wa.me/923037958028?text=Assalam%20o%20Alaikum%2C%20I%20would%20like%20to%20contact%20THE%20WEAR."
+target="_blank"
+rel="noopener"
+>
+    💬 Chat with us on WhatsApp
+</a>
+
+
+<a
+class="email-contact"
+href="mailto:thewear.pk@gmail.com"
+>
+    ✉ thewear.pk@gmail.com
+</a>
+
+
+
+
+
+</div>
+
+
+<div class="support-box">
+
+<strong>
+    Customer Support
+</strong>
+
+<span>
+    For order updates, product questions, delivery information
+    or general assistance, WhatsApp is the quickest way to reach us.
+</span>
+
+</div>
+
+</div>
+
+
+<!-- Message -->
+
+<div class="message-card">
+
+<div class="number">
+    02 — SEND A MESSAGE
+</div>
+
+<h2>
+    Tell us what you need.
+</h2>
+
+<p>
+    Fill in the details below. For now, the form will prepare
+    your message and open WhatsApp so you can send it directly
+    to THE WEAR.
+</p>
+
+
+<form
+class="contact-form"
+onsubmit="sendContactMessage(event)"
+>
+
+<label for="contact-name">
+    Your Name
+</label>
+
+<input
+id="contact-name"
+type="text"
+placeholder="Enter your name"
+required
+>
+
+
+<label for="contact-email">
+    Email Address
+</label>
+
+<input
+id="contact-email"
+type="email"
+placeholder="Enter your email"
+required
+>
+
+
+<label for="contact-message">
+    Message
+</label>
+
+<textarea
+id="contact-message"
+placeholder="How can we help you?"
+required
+></textarea>
+
+
+<button
+type="submit"
+class="contact-submit"
+>
+    Send via WhatsApp
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="contact-cta">
+
+<h2>
+    Need a quick answer?
+</h2>
+
+<p>
+    Send us a message on WhatsApp and we'll help you with
+    your question, product information or order.
+</p>
+
+<a
+href="https://wa.me/923037958028?text=Assalam%20o%20Alaikum%2C%20I%20need%20help%20with%20THE%20WEAR."
+target="_blank"
+rel="noopener"
+>
+    Chat on WhatsApp
+</a>
+
+</section>
+
+
+</main>
+
+
+<!-- Footer -->
+
+<footer class="footer">
+
+<div class="container footer-grid">
+
+
+<div>
+
+<img
+src="assets/logo.svg"
+alt="THE WEAR"
+>
+
+<p>
+Modern headwear and fashion essentials made for everyday confidence.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+    Shop
+</h4>
+
+<p>
+
+<a href="shop.html">
+    All Products
+</a>
+<br>
+
+<a href="shop.html?cat=Caps">
+    Caps
+</a>
+<br>
+
+<a href="shop.html?cat=Bag">
+   Leather
+</a>
+<br>
+
+<a href="shop.html?cat=Streetwear">
+    Streetwear
+</a>
+
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+    Help
+</h4>
+
+<p>
+
+<a href="shipping.html">
+    Shipping
+</a>
+<br>
+
+<a href="returns.html">
+    Returns
+</a>
+<br>
+
+<a href="contact.html">
+    Contact
+</a>
+
+</p>
+
+</div>
+
+
+<div>
+
+<h4>
+    Company
+</h4>
+
+<p>
+
+<a href="about.html">
+    About THE WEAR
+</a>
+<br>
+
+<a href="privacy.html">
+    Privacy
+</a>
+<br>
+
+<a href="admin/login.html">
+    Admin
+</a>
+
+</p>
+
+</div>
+
+
+</div>
+
+
+<div class="container copyright">
+
+© <span id="year"></span>
+THE WEAR. All rights reserved.
+
+</div>
+
+</footer>
+
+
+<div class="toast"></div>
+
+
+<script>
+
+function sendContactMessage(event) {
+
+    event.preventDefault();
+
+    const name =
+        document.getElementById("contact-name").value.trim();
+
+    const email =
+        document.getElementById("contact-email").value.trim();
+
+    const message =
+        document.getElementById("contact-message").value.trim();
+
+
+    const whatsappMessage =
+        `Assalam o Alaikum, I would like to contact THE WEAR.
+
+Name: ${name}
+
+Email: ${email}
+
+Message:
+${message}`;
+
+
+    const whatsappURL =
+        "https://wa.me/923037958028?text=" +
+        encodeURIComponent(whatsappMessage);
+
+
+    window.open(
+        whatsappURL,
+        "_blank"
+    );
+
+}
+
+</script>
+
+
+<script src="js/data.js"></script>
+
+<script
+type="module"
+src="js/app.js"
+></script>
+
+
+</body>
+
+</html>

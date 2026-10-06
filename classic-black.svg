@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+<rect width="900" height="900" fill="#e9e9e9"/>
+<ellipse cx="450" cy="700" rx="280" ry="42" fill="#000" opacity=".12"/>
+<path d="M225 515 C250 315 360 220 515 245 C620 262 675 340 682 470 L635 535 C550 585 350 595 225 515Z" fill="#242424"/>
+<path d="M226 505 C350 555 545 550 645 500 C710 468 774 495 780 535 C690 610 480 660 285 595 C245 580 218 545 226 505Z" fill="#151515"/>
+<path d="M282 465 C365 500 505 505 610 468" fill="none" stroke="#d7ff3f" stroke-width="10" opacity=".9"/>
+<path d="M430 265 L430 515" stroke="#d7ff3f" stroke-width="8" opacity=".65"/>
+<path d="M450 300 C465 290 490 292 505 305" fill="none" stroke="#d7ff3f" stroke-width="7"/>
+<rect x="365" y="370" width="170" height="75" rx="18" fill="#d7ff3f" opacity=".95"/>
+<text x="450" y="419" text-anchor="middle" font-family="Arial" font-size="25" font-weight="800" fill="#111">CORE 01</text>
+<text x="450" y="790" text-anchor="middle" font-family="Arial" font-size="20" letter-spacing="4" fill="#111" opacity=".55">THE WEAR</text>
+</svg>

@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <title>THE WEAR Admin</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+  <div class="admin-shell">
+    <aside class="admin-side">
+      <a class="admin-brand" href="#dashboard" aria-label="THE WEAR admin home">
+        <span>THE WEAR</span><small>ADMIN PANEL</small>
+      </a>
+      <nav class="admin-nav" aria-label="Admin navigation">
+        <a class="active" href="#dashboard">Dashboard</a>
+        <a href="#products">Products</a>
+        <a href="#orders">Orders</a>
+        <a href="#customers">Customers</a>
+        <a href="#settings">Settings</a>
+        <a href="../index.html">View Store</a>
+      </nav>
+      <button id="logout" class="admin-logout" type="button">Log out</button>
+    </aside>
+
+    <main class="admin-main">
+      <section class="admin-page active" id="dashboard" aria-labelledby="dashboardTitle">
+        <header class="page-heading">
+          <div><p class="eyebrow">STORE OVERVIEW</p><h1 id="dashboardTitle">Dashboard</h1><p class="page-description">A clear view of your store’s current performance.</p></div>
+          <button id="refreshData" class="button button-secondary" type="button">Refresh data</button>
+        </header>
+        <div class="stats-grid">
+          <article class="stat-card"><span class="stat-label">Total Orders</span><strong id="statOrders">—</strong><span class="stat-note">All recorded orders</span></article>
+          <article class="stat-card"><span class="stat-label">Total Sales</span><strong id="statRevenue">—</strong><span class="stat-note">From recorded orders</span></article>
+          <article class="stat-card"><span class="stat-label">Total Customers</span><strong id="statCustomers">—</strong><span class="stat-note">Unique customer records</span></article>
+          <article class="stat-card"><span class="stat-label">Total Products</span><strong id="statProducts">—</strong><span class="stat-note">In your catalog</span></article>
+          <article class="stat-card"><span class="stat-label">Pending Orders</span><strong id="statPending">—</strong><span class="stat-note">Awaiting confirmation</span></article>
+          <article class="stat-card"><span class="stat-label">Confirmed Orders</span><strong id="statConfirmed">—</strong><span class="stat-note">Confirmed for fulfillment</span></article>
+          <article class="stat-card"><span class="stat-label">Processing Orders</span><strong id="statProcessing">—</strong><span class="stat-note">Being prepared</span></article>
+          <article class="stat-card"><span class="stat-label">Delivered Orders</span><strong id="statDelivered">—</strong><span class="stat-note">Successfully delivered</span></article>
+          <article class="stat-card"><span class="stat-label">Low Stock</span><strong id="statLowStock">—</strong><span class="stat-note">1–5 units available</span></article>
+          <article class="stat-card"><span class="stat-label">Out of Stock</span><strong id="statOutStock">—</strong><span class="stat-note">0 units available</span></article>
+        </div>
+        <section class="admin-panel recent-orders-panel"><div class="table-toolbar"><div><h2>Recent orders</h2><p>The latest orders from your Firebase records.</p></div><button class="button button-secondary" type="button" data-go="orders">All orders</button></div><div class="table-wrap"><table class="admin-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Phone</th><th>Date</th><th>Total</th><th>Status</th><th>View</th></tr></thead><tbody id="recentOrderRows"></tbody></table></div></section>
+      </section>
+
+      <section class="admin-page" id="products" aria-labelledby="productsTitle">
+        <header class="page-heading">
+          <div><p class="eyebrow">CATALOG</p><h1 id="productsTitle">Products</h1><p class="page-description">Manage product details, availability, and visibility.</p></div>
+          <button id="newProduct" class="button button-primary" type="button">＋ Add product</button>
+        </header>
+        <div class="product-stats-grid">
+          <article class="stat-card"><span class="stat-label">Total Products</span><strong id="productTotalCount">—</strong></article>
+          <article class="stat-card"><span class="stat-label">Low Stock</span><strong id="productLowStockCount">—</strong></article>
+          <article class="stat-card"><span class="stat-label">Out of Stock</span><strong id="productOutStockCount">—</strong></article>
+        </div>
+        <section id="product-form" class="admin-panel product-editor" hidden aria-labelledby="productFormTitle">
+          <div class="panel-heading"><div><p class="eyebrow">PRODUCT EDITOR</p><h2 id="productFormTitle">Add product</h2></div><button type="button" id="cancelProductTop" class="icon-button" aria-label="Close product form">×</button></div>
+          <form id="productForm">
+            <input type="hidden" id="pId" name="id">
+            <div class="form-grid">
+              <div class="field"><label for="pName">Product name</label><input id="pName" name="name" required></div>
+              <div class="field"><label for="pCategory">Category</label><select id="pCategory" name="category"><option>Caps</option><option>Bag</option><option>Trucker</option><option>Streetwear</option><option>Accessories</option><option>Fashion</option></select></div>
+              <div class="field"><label for="pPrice">Price (PKR)</label><input id="pPrice" name="price" type="number" min="0" required></div>
+              <div class="field"><label for="pOld">Original price (PKR)</label><input id="pOld" name="oldPrice" type="number" min="0"></div>
+              <div class="field"><label for="pStock">Stock</label><input id="pStock" name="stock" type="number" min="0" value="10"></div>
+              <div class="field"><label for="pBadge">Badge</label><input id="pBadge" name="badge" placeholder="NEW / SALE / BEST SELLER"></div>
+              <div class="field field-wide"><label for="pImage">Product image</label><select id="pImage" name="image"><option value="">Keep current image (or choose for a new product)</option><option value="assets/products/cap-01.png">Cap image 01</option><option value="assets/products/cap-02.png">Cap image 02</option><option value="assets/products/cap-03.png">Cap image 03</option><option value="assets/products/cap-04.png">Cap image 04</option></select><span class="field-help">Choose one of the product images in the local assets folder. New products cannot save Base64 images.</span><input type="hidden" id="pImageCurrent"><div id="imagePreview" class="image-preview" hidden><img id="imagePreviewImg" src="" alt="Product preview"></div></div>
+              <div class="field field-wide"><label for="pDescription">Description</label><textarea id="pDescription" name="description" rows="4"></textarea></div>
+              <label class="check-field field-wide"><input name="featured" type="checkbox"> Feature this product</label>
+            </div>
+            <div class="form-actions"><button type="submit" class="button button-primary">Save product</button><button type="button" id="cancelProduct" class="button button-secondary">Cancel</button></div>
+          </form>
+        </section>
+        <section class="admin-panel" aria-label="Product list">
+          <div class="table-toolbar"><div><h2>All products</h2><p>Products are saved in your existing Firebase catalog.</p></div><div class="filter-controls product-filters"><input id="productSearch" type="search" placeholder="Search products" aria-label="Search by product name, category, or badge"><select id="productStockFilter" aria-label="Filter by stock"><option value="All">All Stock</option><option value="In Stock">In Stock</option><option value="Low Stock">Low Stock</option><option value="Out of Stock">Out of Stock</option></select><select id="productCategoryFilter" aria-label="Filter by category"><option value="All">All Categories</option><option>Caps</option><option>Bag</option><option>Trucker</option><option>Streetwear</option><option>Accessories</option><option>Fashion</option></select></div></div>
+          <div class="table-wrap"><table class="admin-table products-table"><thead><tr><th>Product</th><th>Category</th><th>Selling price</th><th>Original price</th><th>Stock</th><th>Stock status</th><th>Featured</th><th>Badge</th><th>Actions</th></tr></thead><tbody id="productRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section class="admin-page" id="orders" aria-labelledby="ordersTitle">
+        <header class="page-heading"><div><p class="eyebrow">FULFILLMENT</p><h1 id="ordersTitle">Orders</h1><p class="page-description">Manage customer orders, payments and fulfillment.</p></div></header>
+        <section class="admin-panel orders-panel"><div class="table-toolbar"><div><h2>All orders</h2><p>Review order information and fulfillment status.</p></div><div class="filter-controls"><input id="orderSearch" type="search" placeholder="Search orders..." aria-label="Search orders by ID, customer, phone, or city"><select id="orderStatusFilter" aria-label="Filter by order status"><option value="All">All Status</option><option>Pending</option><option>Confirmed</option><option>Processing</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div></div>
+          <div class="table-wrap"><table class="admin-table orders-table"><thead><tr><th>Order ID</th><th>Date &amp; Time</th><th>Customer</th><th>Phone</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Action</th></tr></thead><tbody id="orderRows"></tbody></table></div>
+        </section>
+      </section>
+
+      <section class="admin-page" id="customers" aria-labelledby="customersTitle">
+        <header class="page-heading"><div><p class="eyebrow">CUSTOMER RELATIONSHIPS</p><h1 id="customersTitle">Customers</h1><p class="page-description">A consolidated view built from existing customer and order records.</p></div></header>
+        <section class="admin-panel"><div class="table-toolbar"><div><h2>Customer activity</h2><p>Customers are grouped using available customer and order details.</p></div><div class="filter-controls customer-filters"><input id="customerSearch" type="search" placeholder="Search customers..." aria-label="Search customers by name, phone, or city"><select id="customerSort" aria-label="Sort customers"><option value="recent">Recent Customers</option><option value="orders">Most Orders</option><option value="spending">Highest Spending</option></select></div></div><div class="table-wrap"><table class="admin-table customers-table"><thead><tr><th>Customer</th><th>Phone</th><th>City</th><th>Total orders</th><th>Total spending</th><th>Last order</th></tr></thead><tbody id="customerRows"></tbody></table></div></section>
+      </section>
+
+      <section class="admin-page" id="settings" aria-labelledby="settingsTitle">
+        <header class="page-heading"><div><p class="eyebrow">PREFERENCES</p><h1 id="settingsTitle">Settings</h1><p class="page-description">Store information for reference.</p></div></header>
+        <div class="settings-grid settings-sections">
+          <section class="admin-panel settings-card"><p class="eyebrow">STORE INFORMATION</p><h2>Store details</h2><dl class="settings-list"><div><dt>Store Name</dt><dd>THE WEAR</dd></div><div><dt>Currency</dt><dd>PKR</dd></div></dl></section>
+          <section class="admin-panel settings-card"><p class="eyebrow">SHIPPING</p><h2>Delivery defaults</h2><dl class="settings-list"><div><dt>Free Shipping Threshold</dt><dd>Rs. 4,000</dd></div><div><dt>Standard Shipping</dt><dd>Rs. 200</dd></div></dl></section>
+          <section class="admin-panel settings-card"><p class="eyebrow">CONTACT</p><h2>Support contact</h2><dl class="settings-list"><div><dt>Support Phone</dt><dd>Not configured</dd></div><div><dt>Support Email</dt><dd>Not configured</dd></div></dl></section>
+          <section class="admin-panel settings-card"><p class="eyebrow">ADMIN INFORMATION</p><h2>Access status</h2><dl class="settings-list"><div><dt>Admin Email</dt><dd id="adminEmailValue">—</dd></div><div><dt>Firebase Authentication</dt><dd><span id="authStatusValue" class="badge badge-status status-delivered">Checking…</span></dd></div></dl></section>
+        </div>
+        <p class="settings-note field-help">Store and shipping information is shown for reference only. These values are not saved as admin settings.</p>
+      </section>
+    </main>
+  </div>
+  <div id="orderModal" class="modal-backdrop" hidden><section class="order-modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle"><header class="modal-header"><div><p class="eyebrow">ORDER DETAILS</p><h2 id="orderModalTitle">Order</h2></div><button id="closeOrderModal" class="icon-button" type="button" aria-label="Close order details">×</button></header><div id="orderModalBody" class="modal-body"></div></section></div>
+  <div id="customerModal" class="modal-backdrop" hidden><section class="order-modal customer-modal" role="dialog" aria-modal="true" aria-labelledby="customerModalTitle"><header class="modal-header"><div><p class="eyebrow">CUSTOMER PROFILE</p><h2 id="customerModalTitle">Customer</h2></div><button id="closeCustomerModal" class="icon-button" type="button" aria-label="Close customer details">×</button></header><div id="customerModalBody" class="modal-body"></div></section></div>
+  <script src="../js/data.js"></script><script type="module" src="admin.js"></script>
+</body>
+</html>
