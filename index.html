@@ -1,111 +1,1665 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#111827">
-  <title>THE WEAR Admin</title>
-  <link rel="stylesheet" href="../style.css">
-  <link rel="stylesheet" href="admin.css">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>THE WEAR — Modern Headwear</title>
+<meta name="description" content="THE WEAR — modern caps and fashion accessories in Pakistan.">
+
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+
+<style>
+
+/* =========================================================
+   TEMPORARILY HIDDEN HOMEPAGE SECTIONS
+   ========================================================= */
+
+.hide-home-section {
+    display: none !important;
+}
+
+
+/* =========================================================
+   COMPACT HERO
+   ========================================================= */
+
+.hero {
+    min-height: 300px !important;
+    height: 300px !important;
+}
+
+.hero-copy {
+    padding-top: 30px !important;
+    padding-bottom: 30px !important;
+}
+
+.hero-copy .kicker {
+    margin-bottom: 10px !important;
+    font-size: 11px !important;
+}
+
+.hero-copy h1 {
+    font-size: clamp(42px, 5vw, 68px) !important;
+    line-height: 0.86 !important;
+    margin: 0 0 18px !important;
+}
+
+.hero-copy p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    max-width: 390px !important;
+    margin-bottom: 18px !important;
+}
+
+.hero-copy .btn {
+    padding: 12px 20px !important;
+    font-size: 11px !important;
+}
+
+.hero-art {
+    height: 300px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hero-art img {
+    width: min(58%, 260px) !important;
+    height: auto !important;
+    max-height: 240px !important;
+    object-fit: contain !important;
+}
+
+
+/* =========================================================
+   PREMIUM PICKS — SMALLER PRODUCT IMAGES
+   ========================================================= */
+
+/* Keep the product grid neat */
+#featured-products {
+    align-items: start !important;
+}
+
+/* Product card */
+#featured-products .product-card {
+    overflow: hidden !important;
+}
+
+/* Main product image area */
+#featured-products .product-card img,
+#featured-products .product-image,
+#featured-products .product-img {
+    width: 100% !important;
+    height: 220px !important;
+    max-height: 220px !important;
+    object-fit: contain !important;
+}
+
+/* Any image wrapper used by the product card */
+#featured-products .product-card .product-media,
+#featured-products .product-card .image-wrap,
+#featured-products .product-card .product-image-wrap {
+    height: 220px !important;
+    max-height: 220px !important;
+    overflow: hidden !important;
+}
+
+/* If product image is directly inside a link */
+#featured-products .product-card > a img,
+#featured-products .product-card a img {
+    height: 220px !important;
+    max-height: 220px !important;
+    object-fit: contain !important;
+}
+
+
+/* =========================================================
+   EDITORIAL — COMPACT
+   ========================================================= */
+
+.editorial {
+    min-height: 280px !important;
+    height: 280px !important;
+}
+
+.editorial-copy {
+    padding: 30px 40px !important;
+}
+
+.editorial-copy .kicker {
+    margin-bottom: 10px !important;
+    font-size: 11px !important;
+}
+
+.editorial-copy h2 {
+    font-size: clamp(32px, 4vw, 52px) !important;
+    line-height: 0.95 !important;
+    margin: 0 0 15px !important;
+}
+
+.editorial-copy p {
+    font-size: 13px !important;
+    line-height: 1.45 !important;
+    max-width: 520px !important;
+    margin-bottom: 15px !important;
+}
+
+.editorial-copy .btn {
+    padding: 11px 18px !important;
+    font-size: 11px !important;
+}
+
+.editorial-art {
+    height: 280px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.editorial-art img {
+    width: min(55%, 250px) !important;
+    max-height: 230px !important;
+    height: auto !important;
+    object-fit: contain !important;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .hero {
+        min-height: 320px !important;
+        height: 320px !important;
+    }
+
+    .hero-art {
+        height: 320px !important;
+    }
+
+    .hero-copy {
+        padding: 25px !important;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(38px, 7vw, 58px) !important;
+    }
+
+    .hero-art img {
+        width: min(62%, 230px) !important;
+        max-height: 220px !important;
+    }
+
+
+    /* Product images */
+    #featured-products .product-card img,
+    #featured-products .product-image,
+    #featured-products .product-img {
+        height: 190px !important;
+        max-height: 190px !important;
+    }
+
+    #featured-products .product-card .product-media,
+    #featured-products .product-card .image-wrap,
+    #featured-products .product-card .product-image-wrap {
+        height: 190px !important;
+        max-height: 190px !important;
+    }
+
+
+    /* Editorial */
+    .editorial {
+        min-height: 300px !important;
+        height: 300px !important;
+    }
+
+    .editorial-copy {
+        padding: 25px !important;
+    }
+
+    .editorial-art {
+        height: 300px !important;
+    }
+
+    .editorial-art img {
+        width: min(60%, 220px) !important;
+        max-height: 220px !important;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* Hero */
+    .hero {
+        height: auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .hero-copy {
+        padding: 35px 25px 30px !important;
+    }
+
+    .hero-copy h1 {
+        font-size: clamp(48px, 15vw, 70px) !important;
+        line-height: 0.86 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .hero-copy p {
+        max-width: 100% !important;
+        font-size: 13px !important;
+    }
+.hero-art {
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.hero-art img {
+    width: 70px !important;
+    max-width: 70px !important;
+    height: 70px !important;
+    max-height: 70px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+
+    /* Product images */
+    #featured-products .product-card img,
+    #featured-products .product-image,
+    #featured-products .product-img {
+        height: 180px !important;
+        max-height: 180px !important;
+    }
+
+    #featured-products .product-card .product-media,
+    #featured-products .product-card .image-wrap,
+    #featured-products .product-card .product-image-wrap {
+        height: 180px !important;
+        max-height: 180px !important;
+    }
+
+
+    /* Editorial */
+    .editorial {
+        height: auto !important;
+        min-height: 0 !important;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    .editorial-copy {
+        padding: 35px 25px 30px !important;
+    }
+
+    .editorial-copy h2 {
+        font-size: 38px !important;
+    }
+
+    .editorial-art {
+        height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+    }
+
+    .editorial-art img {
+       width: 100px !important;
+    max-width: 100px !important;
+    height: 100px !important;
+    max-height: 100px !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    }
+
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 420px) {
+
+    .hero-copy {
+        padding: 28px 20px 25px !important;
+    }
+
+    .hero-copy h1 {
+        font-size: 48px !important;
+    }
+
+   .hero-art {
+    height: 100px !important;
+    min-height: 100px !important;
+    max-height: 100px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+}
+
+    .hero-art img {
+    width: 100px !important;
+    max-width: 100px !important;
+    max-height:100px !important;
+    height: auto !important;
+    object-fit: contain !important;
+    
+}
+
+    /* Product images */
+    #featured-products .product-card img,
+    #featured-products .product-image,
+    #featured-products .product-img {
+        height: 160px !important;
+        max-height: 160px !important;
+    }
+
+    #featured-products .product-card .product-media,
+    #featured-products .product-card .image-wrap,
+    #featured-products .product-card .product-image-wrap {
+        height: 160px !important;
+        max-height: 160px !important;
+    }
+}
+/* Hide THE WEAR EDIT image area on mobile */
+@media (max-width: 700px) {
+    .editorial-art {
+        display: none !important;
+    }
+}
+/* =========================================================
+   HERO IMAGE SLIDER
+   Controlled completely from index.html
+   ========================================================= */
+
+.hero-art {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.hero-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: translateX(25px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    pointer-events: none;
+}
+
+.hero-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.hero-slide img {
+    width: min(58%, 260px) !important;
+    height: auto !important;
+    max-height: 85% !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.hero-slider-prev,
+.hero-slider-next {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    font-size: 25px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: 0;
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero-art:hover .hero-slider-prev,
+.hero-art:hover .hero-slider-next {
+    opacity: 1;
+}
+
+.hero-slider-prev {
+    left: 15px;
+}
+
+.hero-slider-next {
+    right: 15px;
+}
+
+.hero-slider-prev:hover,
+.hero-slider-next:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.hero-slider-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 12px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 7px;
+
+    z-index: 6;
+}
+
+.hero-dot {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        width 0.25s ease,
+        background 0.25s ease;
+}
+
+.hero-dot.active {
+    width: 20px;
+    border-radius: 10px;
+    background: #111;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .hero-art {
+        display: flex !important;
+        height: 100px !important;
+        min-height: 100px !important;
+        max-height: 100px !important;
+        padding: 0 !important;
+    }
+
+    .hero-slide img {
+        width: 70px !important;
+        max-width: 70px !important;
+        height: 70px !important;
+        max-height: 70px !important;
+        object-fit: contain !important;
+    }
+
+    .hero-slider-prev,
+    .hero-slider-next {
+        width: 25px;
+        height: 25px;
+        font-size: 19px;
+    }
+
+    .hero-slider-prev {
+        left: 7px;
+    }
+
+    .hero-slider-next {
+        right: 7px;
+    }
+
+    .hero-slider-dots {
+        bottom: 5px;
+        gap: 5px;
+    }
+
+    .hero-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .hero-dot.active {
+        width: 15px;
+    }
+}
+/* =========================================================
+   THE WEAR EDIT — IMAGE SLIDER
+   ========================================================= */
+
+.editorial-art {
+    position: relative !important;
+    overflow: hidden !important;
+}
+
+.editorial-slider {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.editorial-slide {
+    position: absolute;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    transform: translateX(25px);
+
+    transition:
+        opacity 0.5s ease,
+        transform 0.5s ease;
+
+    pointer-events: none;
+}
+
+.editorial-slide.active {
+    opacity: 1;
+    transform: translateX(0);
+    pointer-events: auto;
+}
+
+.editorial-slide img {
+    width: min(55%, 250px) !important;
+    height: auto !important;
+    max-height: 85% !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+}
+
+
+/* =========================================================
+   ARROWS
+   ========================================================= */
+
+.editorial-slider-prev,
+.editorial-slider-next {
+    position: absolute;
+
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 34px;
+    height: 34px;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.65);
+    color: white;
+
+    font-size: 25px;
+    line-height: 30px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: 0;
+
+    transition:
+        opacity 0.25s ease,
+        background 0.25s ease;
+}
+
+.editorial-art:hover .editorial-slider-prev,
+.editorial-art:hover .editorial-slider-next {
+    opacity: 1;
+}
+
+.editorial-slider-prev {
+    left: 15px;
+}
+
+.editorial-slider-next {
+    right: 15px;
+}
+
+.editorial-slider-prev:hover,
+.editorial-slider-next:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+
+
+/* =========================================================
+   DOTS
+   ========================================================= */
+
+.editorial-slider-dots {
+    position: absolute;
+
+    left: 50%;
+    bottom: 12px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    gap: 7px;
+
+    z-index: 6;
+}
+
+.editorial-dot {
+    width: 7px;
+    height: 7px;
+
+    padding: 0;
+
+    border: 0;
+    border-radius: 50%;
+
+    background: rgba(0, 0, 0, 0.35);
+
+    cursor: pointer;
+
+    transition:
+        width 0.25s ease,
+        background 0.25s ease;
+}
+
+.editorial-dot.active {
+    width: 20px;
+    border-radius: 10px;
+    background: #111;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    .editorial-art {
+        height: 100px !important;
+        min-height: 100px !important;
+        max-height: 100px !important;
+    }
+
+    .editorial-slide img {
+        width: 70px !important;
+        max-width: 70px !important;
+        height: 70px !important;
+        max-height: 70px !important;
+    }
+
+    .editorial-slider-prev,
+    .editorial-slider-next {
+        width: 25px;
+        height: 25px;
+        font-size: 19px;
+    }
+
+    .editorial-slider-prev {
+        left: 7px;
+    }
+
+    .editorial-slider-next {
+        right: 7px;
+    }
+
+    .editorial-slider-dots {
+        bottom: 5px;
+        gap: 5px;
+    }
+
+    .editorial-dot {
+        width: 5px;
+        height: 5px;
+    }
+
+    .editorial-dot.active {
+        width: 15px;
+    }
+}
+</style>
+
 </head>
-<body class="admin-body">
-  <div class="admin-shell">
-    <aside class="admin-side">
-      <a class="admin-brand" href="#dashboard" aria-label="THE WEAR admin home">
-        <span>THE WEAR</span><small>ADMIN PANEL</small>
-      </a>
-      <nav class="admin-nav" aria-label="Admin navigation">
-        <a class="active" href="#dashboard">Dashboard</a>
-        <a href="#products">Products</a>
-        <a href="#orders">Orders</a>
-        <a href="#customers">Customers</a>
-        <a href="#settings">Settings</a>
-        <a href="../index.html">View Store</a>
-      </nav>
-      <button id="logout" class="admin-logout" type="button">Log out</button>
-    </aside>
 
-    <main class="admin-main">
-      <section class="admin-page active" id="dashboard" aria-labelledby="dashboardTitle">
-        <header class="page-heading">
-          <div><p class="eyebrow">STORE OVERVIEW</p><h1 id="dashboardTitle">Dashboard</h1><p class="page-description">A clear view of your store’s current performance.</p></div>
-          <button id="refreshData" class="button button-secondary" type="button">Refresh data</button>
-        </header>
-        <div class="stats-grid">
-          <article class="stat-card"><span class="stat-label">Total Orders</span><strong id="statOrders">—</strong><span class="stat-note">All recorded orders</span></article>
-          <article class="stat-card"><span class="stat-label">Total Sales</span><strong id="statRevenue">—</strong><span class="stat-note">From recorded orders</span></article>
-          <article class="stat-card"><span class="stat-label">Total Customers</span><strong id="statCustomers">—</strong><span class="stat-note">Unique customer records</span></article>
-          <article class="stat-card"><span class="stat-label">Total Products</span><strong id="statProducts">—</strong><span class="stat-note">In your catalog</span></article>
-          <article class="stat-card"><span class="stat-label">Pending Orders</span><strong id="statPending">—</strong><span class="stat-note">Awaiting confirmation</span></article>
-          <article class="stat-card"><span class="stat-label">Confirmed Orders</span><strong id="statConfirmed">—</strong><span class="stat-note">Confirmed for fulfillment</span></article>
-          <article class="stat-card"><span class="stat-label">Processing Orders</span><strong id="statProcessing">—</strong><span class="stat-note">Being prepared</span></article>
-          <article class="stat-card"><span class="stat-label">Delivered Orders</span><strong id="statDelivered">—</strong><span class="stat-note">Successfully delivered</span></article>
-          <article class="stat-card"><span class="stat-label">Low Stock</span><strong id="statLowStock">—</strong><span class="stat-note">1–5 units available</span></article>
-          <article class="stat-card"><span class="stat-label">Out of Stock</span><strong id="statOutStock">—</strong><span class="stat-note">0 units available</span></article>
-        </div>
-        <section class="admin-panel recent-orders-panel"><div class="table-toolbar"><div><h2>Recent orders</h2><p>The latest orders from your Firebase records.</p></div><button class="button button-secondary" type="button" data-go="orders">All orders</button></div><div class="table-wrap"><table class="admin-table"><thead><tr><th>Order ID</th><th>Customer</th><th>Phone</th><th>Date</th><th>Total</th><th>Status</th><th>View</th></tr></thead><tbody id="recentOrderRows"></tbody></table></div></section>
-      </section>
+<body data-page="home">
 
-      <section class="admin-page" id="products" aria-labelledby="productsTitle">
-        <header class="page-heading">
-          <div><p class="eyebrow">CATALOG</p><h1 id="productsTitle">Products</h1><p class="page-description">Manage product details, availability, and visibility.</p></div>
-          <button id="newProduct" class="button button-primary" type="button">＋ Add product</button>
-        </header>
-        <div class="product-stats-grid">
-          <article class="stat-card"><span class="stat-label">Total Products</span><strong id="productTotalCount">—</strong></article>
-          <article class="stat-card"><span class="stat-label">Low Stock</span><strong id="productLowStockCount">—</strong></article>
-          <article class="stat-card"><span class="stat-label">Out of Stock</span><strong id="productOutStockCount">—</strong></article>
+<div class="announce">
+    <b>FREE SHIPPING</b> ON ORDERS OVER PKR 4,000 · CASH ON DELIVERY AVAILABLE
+</div>
+
+
+<header class="header">
+    <div class="container nav">
+
+        <a class="brand" href="index.html">
+            <img src="assets/logo.svg" alt="THE WEAR">
+        </a>
+
+        <nav class="navlinks">
+            <a href="shop.html">Shop</a>
+            <a href="shop.html?cat=Caps">Caps</a>
+            <a href="shop.html?cat=Bag">Bag</a>
+            <a href="shop.html?cat=Streetwear">Streetwear</a>
+            <a href="about.html">About</a>
+        </nav>
+
+        <div class="navicons">
+            <a class="iconbtn" href="shop.html">⌕</a>
+
+            <a class="iconbtn badgecount" href="cart.html">
+                🛒<span class="cart-count">0</span>
+            </a>
+
+            <button class="iconbtn menu">☰</button>
         </div>
-        <section id="product-form" class="admin-panel product-editor" hidden aria-labelledby="productFormTitle">
-          <div class="panel-heading"><div><p class="eyebrow">PRODUCT EDITOR</p><h2 id="productFormTitle">Add product</h2></div><button type="button" id="cancelProductTop" class="icon-button" aria-label="Close product form">×</button></div>
-          <form id="productForm">
-            <input type="hidden" id="pId" name="id">
-            <div class="form-grid">
-              <div class="field"><label for="pName">Product name</label><input id="pName" name="name" required></div>
-              <div class="field"><label for="pCategory">Category</label><select id="pCategory" name="category"><option>Caps</option><option>Bag</option><option>Trucker</option><option>Streetwear</option><option>Accessories</option><option>Fashion</option></select></div>
-              <div class="field"><label for="pPrice">Price (PKR)</label><input id="pPrice" name="price" type="number" min="0" required></div>
-              <div class="field"><label for="pOld">Original price (PKR)</label><input id="pOld" name="oldPrice" type="number" min="0"></div>
-              <div class="field"><label for="pStock">Stock</label><input id="pStock" name="stock" type="number" min="0" value="10"></div>
-              <div class="field"><label for="pBadge">Badge</label><input id="pBadge" name="badge" placeholder="NEW / SALE / BEST SELLER"></div>
-              <div class="field field-wide"><label for="pImage">Product image</label><select id="pImage" name="image"><option value="">Keep current image (or choose for a new product)</option><option value="assets/products/cap-01.png">Cap image 01</option><option value="assets/products/cap-02.png">Cap image 02</option><option value="assets/products/cap-03.png">Cap image 03</option><option value="assets/products/cap-04.png">Cap image 04</option></select><span class="field-help">Choose one of the product images in the local assets folder. New products cannot save Base64 images.</span><input type="hidden" id="pImageCurrent"><div id="imagePreview" class="image-preview" hidden><img id="imagePreviewImg" src="" alt="Product preview"></div></div>
-              <div class="field field-wide"><label for="pDescription">Description</label><textarea id="pDescription" name="description" rows="4"></textarea></div>
-              <label class="check-field field-wide"><input name="featured" type="checkbox"> Feature this product</label>
+
+    </div>
+</header>
+
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-copy">
+
+        <div class="kicker">
+            THE NEW STANDARD
+        </div>
+
+        <h1>
+            WEAR<br>
+            YOUR<br>
+            EDGE.
+        </h1>
+
+        <p>
+            Premium-inspired caps and street essentials for people who want a clean look with a little attitude.
+        </p>
+
+        <a class="btn lime" href="shop.html">
+            Shop New Arrivals →
+        </a>
+
+    </div>
+
+
+    <div class="hero-art">
+
+    <div class="hero-slider">
+
+        <div class="hero-slide active">
+            <img src="assets/products/cap-01.png" alt="THE WEAR Cap 1">
+        </div>
+
+        <div class="hero-slide">
+            <img src="assets/products/cap-02.png" alt="THE WEAR Cap 2">
+        </div>
+
+        <div class="hero-slide">
+            <img src="assets/products/cap-03.png" alt="THE WEAR Cap 3">
+        </div>
+
+        <div class="hero-slide">
+            <img src="assets/products/cap-04.png" alt="THE WEAR Cap 4">
+        </div>
+
+    </div>
+
+    <button class="hero-slider-prev" type="button" aria-label="Previous">
+        ‹
+    </button>
+
+    <button class="hero-slider-next" type="button" aria-label="Next">
+        ›
+    </button>
+
+    <div class="hero-slider-dots">
+        <button class="hero-dot active" type="button"></button>
+        <button class="hero-dot" type="button"></button>
+        <button class="hero-dot" type="button"></button>
+        <button class="hero-dot" type="button"></button>
+    </div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     SHOP THE COLLECTIONS
+     TEMPORARILY HIDDEN
+     ===================================================== -->
+
+<section class="section hide-home-section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+                <div class="eyebrow">
+                    Explore
+                </div>
+
+                <h2>
+                    Shop the collections
+                </h2>
             </div>
-            <div class="form-actions"><button type="submit" class="button button-primary">Save product</button><button type="button" id="cancelProduct" class="button button-secondary">Cancel</button></div>
-          </form>
-        </section>
-        <section class="admin-panel" aria-label="Product list">
-          <div class="table-toolbar"><div><h2>All products</h2><p>Products are saved in your existing Firebase catalog.</p></div><div class="filter-controls product-filters"><input id="productSearch" type="search" placeholder="Search products" aria-label="Search by product name, category, or badge"><select id="productStockFilter" aria-label="Filter by stock"><option value="All">All Stock</option><option value="In Stock">In Stock</option><option value="Low Stock">Low Stock</option><option value="Out of Stock">Out of Stock</option></select><select id="productCategoryFilter" aria-label="Filter by category"><option value="All">All Categories</option><option>Caps</option><option>Bag</option><option>Trucker</option><option>Streetwear</option><option>Accessories</option><option>Fashion</option></select></div></div>
-          <div class="table-wrap"><table class="admin-table products-table"><thead><tr><th>Product</th><th>Category</th><th>Selling price</th><th>Original price</th><th>Stock</th><th>Stock status</th><th>Featured</th><th>Badge</th><th>Actions</th></tr></thead><tbody id="productRows"></tbody></table></div>
-        </section>
-      </section>
 
-      <section class="admin-page" id="orders" aria-labelledby="ordersTitle">
-        <header class="page-heading"><div><p class="eyebrow">FULFILLMENT</p><h1 id="ordersTitle">Orders</h1><p class="page-description">Manage customer orders, payments and fulfillment.</p></div></header>
-        <section class="admin-panel orders-panel"><div class="table-toolbar"><div><h2>All orders</h2><p>Review order information and fulfillment status.</p></div><div class="filter-controls"><input id="orderSearch" type="search" placeholder="Search orders..." aria-label="Search orders by ID, customer, phone, or city"><select id="orderStatusFilter" aria-label="Filter by order status"><option value="All">All Status</option><option>Pending</option><option>Confirmed</option><option>Processing</option><option>Shipped</option><option>Delivered</option><option>Cancelled</option></select></div></div>
-          <div class="table-wrap"><table class="admin-table orders-table"><thead><tr><th>Order ID</th><th>Date &amp; Time</th><th>Customer</th><th>Phone</th><th>Items</th><th>Total</th><th>Payment</th><th>Status</th><th>Action</th></tr></thead><tbody id="orderRows"></tbody></table></div>
-        </section>
-      </section>
+            <a class="btn" href="shop.html">
+                View all
+            </a>
 
-      <section class="admin-page" id="customers" aria-labelledby="customersTitle">
-        <header class="page-heading"><div><p class="eyebrow">CUSTOMER RELATIONSHIPS</p><h1 id="customersTitle">Customers</h1><p class="page-description">A consolidated view built from existing customer and order records.</p></div></header>
-        <section class="admin-panel"><div class="table-toolbar"><div><h2>Customer activity</h2><p>Customers are grouped using available customer and order details.</p></div><div class="filter-controls customer-filters"><input id="customerSearch" type="search" placeholder="Search customers..." aria-label="Search customers by name, phone, or city"><select id="customerSort" aria-label="Sort customers"><option value="recent">Recent Customers</option><option value="orders">Most Orders</option><option value="spending">Highest Spending</option></select></div></div><div class="table-wrap"><table class="admin-table customers-table"><thead><tr><th>Customer</th><th>Phone</th><th>City</th><th>Total orders</th><th>Total spending</th><th>Last order</th></tr></thead><tbody id="customerRows"></tbody></table></div></section>
-      </section>
-
-      <section class="admin-page" id="settings" aria-labelledby="settingsTitle">
-        <header class="page-heading"><div><p class="eyebrow">PREFERENCES</p><h1 id="settingsTitle">Settings</h1><p class="page-description">Store information for reference.</p></div></header>
-        <div class="settings-grid settings-sections">
-          <section class="admin-panel settings-card"><p class="eyebrow">STORE INFORMATION</p><h2>Store details</h2><dl class="settings-list"><div><dt>Store Name</dt><dd>THE WEAR</dd></div><div><dt>Currency</dt><dd>PKR</dd></div></dl></section>
-          <section class="admin-panel settings-card"><p class="eyebrow">SHIPPING</p><h2>Delivery defaults</h2><dl class="settings-list"><div><dt>Free Shipping Threshold</dt><dd>Rs. 4,000</dd></div><div><dt>Standard Shipping</dt><dd>Rs. 200</dd></div></dl></section>
-          <section class="admin-panel settings-card"><p class="eyebrow">CONTACT</p><h2>Support contact</h2><dl class="settings-list"><div><dt>Support Phone</dt><dd>Not configured</dd></div><div><dt>Support Email</dt><dd>Not configured</dd></div></dl></section>
-          <section class="admin-panel settings-card"><p class="eyebrow">ADMIN INFORMATION</p><h2>Access status</h2><dl class="settings-list"><div><dt>Admin Email</dt><dd id="adminEmailValue">—</dd></div><div><dt>Firebase Authentication</dt><dd><span id="authStatusValue" class="badge badge-status status-delivered">Checking…</span></dd></div></dl></section>
         </div>
-        <p class="settings-note field-help">Store and shipping information is shown for reference only. These values are not saved as admin settings.</p>
-      </section>
-    </main>
-  </div>
-  <div id="orderModal" class="modal-backdrop" hidden><section class="order-modal" role="dialog" aria-modal="true" aria-labelledby="orderModalTitle"><header class="modal-header"><div><p class="eyebrow">ORDER DETAILS</p><h2 id="orderModalTitle">Order</h2></div><button id="closeOrderModal" class="icon-button" type="button" aria-label="Close order details">×</button></header><div id="orderModalBody" class="modal-body"></div></section></div>
-  <div id="customerModal" class="modal-backdrop" hidden><section class="order-modal customer-modal" role="dialog" aria-modal="true" aria-labelledby="customerModalTitle"><header class="modal-header"><div><p class="eyebrow">CUSTOMER PROFILE</p><h2 id="customerModalTitle">Customer</h2></div><button id="closeCustomerModal" class="icon-button" type="button" aria-label="Close customer details">×</button></header><div id="customerModalBody" class="modal-body"></div></section></div>
-  <script src="../js/data.js"></script><script type="module" src="admin.js"></script>
+
+
+        <div class="collections">
+
+            <a class="collection" href="shop.html?cat=Caps">
+
+                <img
+                    src="assets/classic-black.svg"
+                    alt="Baseball Caps"
+                >
+
+                <div>
+                    <h3>
+                        Baseball Caps
+                    </h3>
+
+                    <span>
+                        Everyday essentials →
+                    </span>
+                </div>
+
+            </a>
+
+
+            <a class="collection" href="shop.html?cat=Bag">
+
+                <img
+                    src="assets/midnight-Bag.svg"
+                    alt="Bag Edit"
+                >
+
+                <div>
+                    <h3>
+                       Leather Edit
+                    </h3>
+
+                    <span>
+                        Premium statement pieces →
+                    </span>
+                </div>
+
+            </a>
+
+
+            <a class="collection" href="shop.html?cat=Streetwear">
+
+                <img
+                    src="assets/redline.svg"
+                    alt="Streetwear"
+                >
+
+                <div>
+                    <h3>
+                        Streetwear
+                    </h3>
+
+                    <span>
+                        Built to stand out →
+                    </span>
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     PREMIUM PICKS
+     ===================================================== -->
+
+<section class="section" style="padding-top:10px">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Curated for you
+                </div>
+
+                <h2>
+                    Premium picks
+                </h2>
+
+            </div>
+
+            <a href="shop.html">
+                Shop all →
+            </a>
+
+        </div>
+
+
+        <div
+            id="featured-products"
+            class="grid">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EDITORIAL
+     ===================================================== -->
+
+<section class="editorial">
+
+    <div class="editorial-copy">
+
+        <div class="kicker">
+            THE WEAR EDIT
+        </div>
+
+        <h2>
+            Make the everyday look intentional.
+        </h2>
+
+        <p>
+            Clean silhouettes. Strong details. Easy-to-wear colors. Discover pieces designed to become part of your daily uniform.
+        </p>
+
+        <a class="btn light" href="shop.html">
+            Explore the edit
+        </a>
+
+    </div>
+
+
+   <div class="editorial-art">
+
+    <div class="editorial-slider">
+
+        <div class="editorial-slide active">
+            <img src="assets/products/cap-01.png" alt="THE WEAR Cap 1">
+        </div>
+
+        <div class="editorial-slide">
+            <img src="assets/products/cap-02.png" alt="THE WEAR Cap 2">
+        </div>
+
+        <div class="editorial-slide">
+            <img src="assets/products/cap-03.png" alt="THE WEAR Cap 3">
+        </div>
+
+        <div class="editorial-slide">
+            <img src="assets/products/cap-04.png" alt="THE WEAR Cap 4">
+        </div>
+
+    </div>
+
+
+    <button class="editorial-slider-prev" type="button" aria-label="Previous">
+        ‹
+    </button>
+
+    <button class="editorial-slider-next" type="button" aria-label="Next">
+        ›
+    </button>
+
+
+    <div class="editorial-slider-dots">
+
+        <button class="editorial-dot active" type="button"></button>
+
+        <button class="editorial-dot" type="button"></button>
+
+        <button class="editorial-dot" type="button"></button>
+
+        <button class="editorial-dot" type="button"></button>
+
+    </div>
+
+</div>
+</section>
+
+
+<!-- =====================================================
+     NEW & TRENDING
+     TEMPORARILY HIDDEN
+     ===================================================== -->
+
+<section class="section hide-home-section">
+
+    <div class="container">
+
+        <div class="section-head">
+
+            <div>
+
+                <div class="eyebrow">
+                    Fresh drops
+                </div>
+
+                <h2>
+                    New & trending
+                </h2>
+
+            </div>
+
+        </div>
+
+
+        <div
+            id="home-products"
+            class="grid">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     BENEFITS
+     ===================================================== -->
+
+<section class="section" style="padding-top:20px">
+
+    <div class="container benefits">
+
+        <div class="benefit">
+
+            <b>
+                Free Shipping
+            </b>
+
+            <p>
+                Free delivery on orders over PKR 4,000 across Pakistan.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <b>
+                Cash on Delivery
+            </b>
+
+            <p>
+                Order with confidence and pay when your parcel arrives.
+            </p>
+
+        </div>
+
+
+        <div class="benefit">
+
+            <b>
+                Easy Returns
+            </b>
+
+            <p>
+                Simple support for eligible returns and exchanges.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     NEWSLETTER
+     ===================================================== -->
+
+<section class="newsletter">
+
+    <div class="container">
+
+        <div class="eyebrow">
+            Stay in the loop
+        </div>
+
+        <h2>
+            Get the next drop first.
+        </h2>
+
+        <p>
+            New collections, limited pieces and special offers.
+        </p>
+
+
+        <form
+            onsubmit="event.preventDefault();alert('Thanks for joining THE WEAR.');">
+
+            <input
+                type="email"
+                required
+                placeholder="Your email address"
+            >
+
+            <button>
+                Join
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="footer">
+
+    <div class="container footer-grid">
+
+
+        <div>
+
+            <img
+                src="assets/logo.svg"
+                alt="THE WEAR"
+            >
+
+            <p>
+                Modern headwear and fashion essentials made for everyday confidence.
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Shop
+            </h4>
+
+            <p>
+
+                <a href="shop.html">
+                    All Products
+                </a>
+
+                <br>
+
+                <a href="shop.html?cat=Caps">
+                    Caps
+                </a>
+
+                <br>
+
+                <a href="shop.html?cat=Bag">
+                   Leather
+                </a>
+
+                <br>
+
+                <a href="shop.html?cat=Streetwear">
+                    Streetwear
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Help
+            </h4>
+
+            <p>
+
+                <a href="shipping.html">
+                    Shipping
+                </a>
+
+                <br>
+
+                <a href="returns.html">
+                    Returns
+                </a>
+
+                <br>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </p>
+
+        </div>
+
+
+        <div>
+
+            <h4>
+                Company
+            </h4>
+
+            <p>
+
+                <a href="about.html">
+                    About THE WEAR
+                </a>
+
+                <br>
+
+                <a href="privacy.html">
+                    Privacy
+                </a>
+
+                <br>
+
+                <a href="admin/login.html">
+                    Admin
+                </a>
+
+            </p>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="container copyright">
+
+        © <span id="year"></span> THE WEAR.
+        All rights reserved.
+
+    </div>
+
+</footer>
+
+
+<div class="toast"></div>
+
+
+<script src="js/data.js"></script>
+<script type="module" src="js/app.js"></script>
+<script>
+/* =========================================================
+   THE WEAR HERO SLIDER
+   No Firebase
+   No Admin Panel
+   No Firestore
+   ========================================================= */
+
+(function () {
+
+    const slides = document.querySelectorAll(".hero-slide");
+    const dots = document.querySelectorAll(".hero-dot");
+
+    const prevButton = document.querySelector(".hero-slider-prev");
+    const nextButton = document.querySelector(".hero-slider-next");
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let sliderTimer;
+
+
+    function showSlide(index) {
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        currentSlide = index;
+
+
+        slides.forEach(function (slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        dots.forEach(function (dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+    }
+
+
+    function nextSlide() {
+        showSlide(currentSlide + 1);
+    }
+
+
+    function previousSlide() {
+        showSlide(currentSlide - 1);
+    }
+
+
+    function startSlider() {
+
+        clearInterval(sliderTimer);
+
+        sliderTimer = setInterval(
+            nextSlide,
+            3500
+        );
+
+    }
+
+
+    function resetSlider() {
+        startSlider();
+    }
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextSlide();
+                resetSlider();
+
+            }
+        );
+
+    }
+
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                previousSlide();
+                resetSlider();
+
+            }
+        );
+
+    }
+
+
+    dots.forEach(function (dot, index) {
+
+        dot.addEventListener(
+            "click",
+            function () {
+
+                showSlide(index);
+                resetSlider();
+
+            }
+        );
+
+    });
+
+
+    showSlide(0);
+    startSlider();
+
+})();
+</script>
+
+<script>
+/* =========================================================
+   THE WEAR EDIT SLIDER
+   Frontend only — no Firebase / Admin
+   ========================================================= */
+
+(function () {
+
+    const slides = document.querySelectorAll(".editorial-slide");
+    const dots = document.querySelectorAll(".editorial-dot");
+
+    const prevButton =
+        document.querySelector(".editorial-slider-prev");
+
+    const nextButton =
+        document.querySelector(".editorial-slider-next");
+
+    if (!slides.length) return;
+
+    let currentSlide = 0;
+    let sliderTimer;
+
+
+    function showEditorialSlide(index) {
+
+        if (index >= slides.length) {
+            index = 0;
+        }
+
+        if (index < 0) {
+            index = slides.length - 1;
+        }
+
+        currentSlide = index;
+
+
+        slides.forEach(function (slide, i) {
+
+            slide.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+
+        dots.forEach(function (dot, i) {
+
+            dot.classList.toggle(
+                "active",
+                i === currentSlide
+            );
+
+        });
+
+    }
+
+
+    function nextEditorialSlide() {
+
+        showEditorialSlide(currentSlide + 1);
+
+    }
+
+
+    function previousEditorialSlide() {
+
+        showEditorialSlide(currentSlide - 1);
+
+    }
+
+
+    function startEditorialSlider() {
+
+        clearInterval(sliderTimer);
+
+        sliderTimer = setInterval(
+            nextEditorialSlide,
+            3500
+        );
+
+    }
+
+
+    if (nextButton) {
+
+        nextButton.addEventListener(
+            "click",
+            function () {
+
+                nextEditorialSlide();
+                startEditorialSlider();
+
+            }
+        );
+
+    }
+
+
+    if (prevButton) {
+
+        prevButton.addEventListener(
+            "click",
+            function () {
+
+                previousEditorialSlide();
+                startEditorialSlider();
+
+            }
+        );
+
+    }
+
+
+    dots.forEach(function (dot, index) {
+
+        dot.addEventListener(
+            "click",
+            function () {
+
+                showEditorialSlide(index);
+                startEditorialSlider();
+
+            }
+        );
+
+    });
+
+
+    showEditorialSlide(0);
+    startEditorialSlider();
+
+})();
+</script>
+<!-- WhatsApp Floating Button -->
+<a
+  href="https://wa.me/923037958028?text=Assalam%20o%20Alaikum%2C%20mujhe%20WEWEAR%20ke%20products%20ke%20baray%20mein%20maloomat%20chahiye."
+  class="whatsapp-float"
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label="Chat with us on WhatsApp"
+>
+  <span class="whatsapp-icon">
+    <svg viewBox="0 0 32 32" width="28" height="28" fill="currentColor">
+      <path d="M19.11 17.19c-.27-.14-1.59-.78-1.84-.87-.25-.09-.43-.14-.61.14-.18.27-.7.87-.86 1.05-.16.18-.32.2-.59.07-.27-.14-1.14-.42-2.17-1.34-.8-.71-1.34-1.59-1.5-1.86-.16-.27-.02-.42.12-.56.12-.12.27-.32.41-.48.14-.16.18-.27.27-.45.09-.18.05-.34-.02-.48-.07-.14-.61-1.47-.84-2.01-.22-.53-.45-.46-.61-.47h-.52c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.11 2.84c.14.18 1.93 2.95 4.68 4.14.65.28 1.16.45 1.56.58.66.21 1.26.18 1.73.11.53-.08 1.59-.65 1.81-1.28.23-.63.23-1.17.16-1.28-.07-.11-.25-.18-.52-.32z"/>
+      <path d="M16.02 3.2c-7.08 0-12.84 5.75-12.84 12.83 0 2.26.59 4.47 1.72 6.42L3.08 28.8l6.5-1.7a12.82 12.82 0 0 0 6.44 1.73h.01c7.08 0 12.83-5.76 12.83-12.84S23.1 3.2 16.02 3.2zm0 23.5h-.01a10.64 10.64 0 0 1-5.43-1.49l-.39-.23-3.86 1.01 1.03-3.76-.25-.39a10.65 10.65 0 1 1 8.91 4.86z"/>
+    </svg>
+  </span>
+  <span class="whatsapp-text">Chat on WhatsApp</span>
+</a>
 </body>
 </html>
