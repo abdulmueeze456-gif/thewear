@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+Disallow: /admin/
+Disallow: /cart.html
+Disallow: /checkout.html
+Disallow: /success.html
+
+Sitemap: https://thewear.iqbalsweets.com.pk/sitemap.xml

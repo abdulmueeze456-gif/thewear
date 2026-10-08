@@ -726,10 +726,6 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
     const buyButton =
       $("#product-buy");
 
-    const title =
-      $("#product-title");
-
-
     /* PRODUCT INFORMATION */
 
     if (image) {
@@ -786,11 +782,16 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
     }
 
 
-    if (title) {
+    document.title = `${product.name || "Product"} | THE WEAR`;
 
-      title.textContent =
-        `${product.name || ""} | THE WEAR`;
+    const metaDescription = document.querySelector('meta[name="description"]');
 
+    if (metaDescription) {
+      metaDescription.setAttribute(
+        "content",
+        product.description ||
+        "Shop quality fashion products from THE WEAR in Pakistan. Cash on Delivery available."
+      );
     }
 
 
