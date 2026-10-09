@@ -84,6 +84,41 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
   }
 
 
+  function setProductSeo(product) {
+    if (!product || typeof product !== "object" || !product.id) return;
+    const baseUrl = "https://thewear.iqbalsweets.com.pk/product.html";
+    const productUrl = `${baseUrl}?id=${encodeURIComponent(product.id)}`;
+    const imagePath = productImage(product);
+    let imageUrl = "";
+    try { imageUrl = imagePath ? new URL(imagePath, document.baseURI).href : ""; } catch { imageUrl = ""; }
+    const name = typeof product.name === "string" && product.name.trim() ? product.name.trim() : "THE WEAR product";
+    const description = typeof product.description === "string" ? product.description.trim() : "";
+    const price = Number(product.price);
+    const stock = Number(product.stock ?? 0);
+    document.title = `${name} | THE WEAR`;
+    const safeDescription = description || "Shop quality fashion products from THE WEAR in Pakistan.";
+    const descriptionMeta = $("#product-meta-description");
+    if (descriptionMeta) descriptionMeta.content = safeDescription;
+    const setMeta = (selector, value) => { const element = $(selector); if (element) element.content = value; };
+    setMeta("#product-og-title", document.title);
+    setMeta("#product-og-description", safeDescription);
+    setMeta("#product-og-url", productUrl);
+    if (imageUrl) setMeta("#product-og-image", imageUrl);
+    const canonical = $("#product-canonical");
+    if (canonical) canonical.href = productUrl;
+    const jsonLd = {
+      "@context": "https://schema.org", "@type": "Product",
+      "@id": `${productUrl}#product`, productID: String(product.id), name, url: productUrl,
+      offers: { "@type": "Offer", url: productUrl, priceCurrency: "PKR",
+        availability: Number.isFinite(stock) && stock > 0 ? "https://schema.org/InStock" : "https://schema.org/OutOfStock" }
+    };
+    if (description) jsonLd.description = description;
+    if (Number.isFinite(price) && price >= 0) jsonLd.offers.price = price;
+    if (imageUrl) jsonLd.image = [imageUrl];
+    let script = $("#product-jsonld");
+    if (!script) { script = document.createElement("script"); script.id = "product-jsonld"; script.type = "application/ld+json"; document.head.appendChild(script); }
+    script.textContent = JSON.stringify(jsonLd).replace(/</g, "\\u003c");
+  }
   function saveCart(cart) {
 
     localStorage.setItem(
@@ -782,17 +817,7 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
     }
 
 
-    document.title = `${product.name || "Product"} | THE WEAR`;
-
-    const metaDescription = document.querySelector('meta[name="description"]');
-
-    if (metaDescription) {
-      metaDescription.setAttribute(
-        "content",
-        product.description ||
-        "Shop quality fashion products from THE WEAR in Pakistan. Cash on Delivery available."
-      );
-    }
+    setProductSeo(product);
 
 
     /* =========================================
