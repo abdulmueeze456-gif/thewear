@@ -51,3 +51,9 @@ https://thewear.iqbalsweets.com.pk
 ## Important
 
 The included localStorage mode is fully usable for design/testing, but it is not a production database. Before accepting real customer orders at scale, connect Firebase/Firestore and Firebase Authentication, then tighten Firestore rules around your admin UID.
+
+## Product page generation
+
+This site is hosted as static GitHub Pages content. Before deploying changes to Firebase products, run the command below. The script reads the public Firestore products collection and generates one initial-HTML product page under products/{document-id}/, updates the shop product links, and refreshes product URLs in sitemap.xml. Commit and deploy those generated files with the site. The existing product.html?id=... route remains available for older links.
+
+    node scripts/generate-product-pages.mjs

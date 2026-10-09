@@ -80,14 +80,23 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
 
   function productImage(product) {
     const localImage = migratedProductImages[product?.id];
-    return product?.image || localImage || "";
+    const image = product?.image || localImage || "";
+    if (!image) return "";
+    try {
+      return new URL(image, location.origin + "/").href;
+    } catch {
+      return image;
+    }
   }
 
 
   function setProductSeo(product) {
     if (!product || typeof product !== "object" || !product.id) return;
     const baseUrl = "https://thewear.iqbalsweets.com.pk/product.html";
-    const productUrl = `${baseUrl}?id=${encodeURIComponent(product.id)}`;
+    const isGeneratedPage = document.body.dataset.productId === String(product.id);
+    const productUrl = isGeneratedPage
+      ? "https://thewear.iqbalsweets.com.pk/products/" + encodeURIComponent(product.id) + "/"
+      : baseUrl + "?id=" + encodeURIComponent(product.id);
     const imagePath = productImage(product);
     let imageUrl = "";
     try { imageUrl = imagePath ? new URL(imagePath, document.baseURI).href : ""; } catch { imageUrl = ""; }
@@ -332,7 +341,7 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
       <article class="card">
 
         <a
-          href="product.html?id=${product.id}"
+          href="/products/${encodeURIComponent(product.id)}/"
           class="card-media"
         >
 
@@ -415,7 +424,7 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
 
             <a
               class="view"
-              href="product.html?id=${product.id}"
+              href="/products/${encodeURIComponent(product.id)}/"
             >
               ↗
             </a>
@@ -715,10 +724,7 @@ import { collection, addDoc, getDocs, doc, runTransaction } from "https://www.gs
 
   function renderProduct() {
 
-    const id =
-      new URLSearchParams(
-        location.search
-      ).get("id");
+    const id = new URLSearchParams(location.search).get("id") || document.body.dataset.productId;
 
 
     const product = products.find(item => item.id === id) || products[0];
